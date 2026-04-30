@@ -140,7 +140,8 @@
   <script>
     function playWinNotify() {
       const ctx = new (window.AudioContext || window.webkitAudioContext)();
-      const notes = [784, 1047]; // G5 → C6, классический Windows Notify
+      // Волна вверх-вниз: C5 → E5 → G5 → E5 → C5
+      const notes = [523, 659, 784, 659, 523];
       let time = ctx.currentTime;
       notes.forEach(function(freq) {
         const osc = ctx.createOscillator();
@@ -149,11 +150,12 @@
         gain.connect(ctx.destination);
         osc.type = 'sine';
         osc.frequency.setValueAtTime(freq, time);
-        gain.gain.setValueAtTime(0.35, time);
-        gain.gain.exponentialRampToValueAtTime(0.001, time + 0.35);
+        gain.gain.setValueAtTime(0.001, time);
+        gain.gain.linearRampToValueAtTime(0.28, time + 0.06);
+        gain.gain.exponentialRampToValueAtTime(0.001, time + 0.28);
         osc.start(time);
-        osc.stop(time + 0.35);
-        time += 0.18;
+        osc.stop(time + 0.3);
+        time += 0.13;
       });
     }
   </script>
