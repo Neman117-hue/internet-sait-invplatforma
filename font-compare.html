@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сравнение шрифтов — InvPlatforma</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap&subset=cyrillic" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark:   #1C2B45;
+      --copper: #C47B3A;
+      --copper-dark: #A36228;
+      --cream:  #F5EDD8;
+      --text-light: rgba(245,237,216,0.65);
+    }
+
+    body {
+      background: var(--dark);
+      color: var(--cream);
+      padding: 48px 24px;
+      line-height: 1.6;
+    }
+
+    h1 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 48px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
+      max-width: 1200px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(196,123,58,0.25);
+      border-radius: 4px;
+      padding: 32px;
+    }
+
+    .card-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(196,123,58,0.2);
+    }
+
+    .card-label span {
+      color: var(--text-light);
+      font-weight: 400;
+      margin-left: 8px;
+    }
+
+    .sample-heading {
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--cream);
+      margin-bottom: 12px;
+    }
+
+    .sample-sub {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+
+    .sample-body {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+
+    .sample-btn {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cream);
+      background: var(--copper);
+      padding: 10px 24px;
+      border-radius: 2px;
+      margin-bottom: 24px;
+    }
+
+    .weights {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      border-top: 1px solid rgba(196,123,58,0.15);
+      padding-top: 20px;
+    }
+
+    .weight-row {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .weight-row .wnum {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      color: var(--copper);
+      min-width: 28px;
+      opacity: 0.7;
+    }
+
+    .weight-row .wsample {
+      font-size: 16px;
+      color: var(--cream);
+    }
+
+    /* Per-font */
+    .manrope  { font-family: 'Manrope', sans-serif; }
+    .inter    { font-family: 'Inter', sans-serif; }
+    .montserrat { font-family: 'Montserrat', sans-serif; }
+
+    /* Verdict */
+    .verdict {
+      margin-top: 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--text-light);
+      border-left: 2px solid var(--copper);
+      padding-left: 12px;
+    }
+
+    .verdict strong {
+      color: var(--copper);
+      font-weight: 600;
+    }
+
+    /* Separator */
+    .section-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin: 48px 0 24px;
+      max-width: 1200px;
+    }
+
+    .combo-card {
+      max-width: 1200px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(196,123,58,0.25);
+      border-radius: 4px;
+      padding: 40px;
+    }
+
+    .combo-card h2 {
+      font-family: 'Manrope', sans-serif;
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+
+    .combo-card .eyebrow {
+      font-family: 'Manrope', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 16px;
+    }
+
+    .combo-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--text-light);
+      max-width: 600px;
+      margin-bottom: 24px;
+    }
+
+    .combo-card .cta {
+      font-family: 'Manrope', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cream);
+      background: var(--copper);
+      padding: 12px 28px;
+      border-radius: 2px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Сравнение шрифтов &mdash; InvPlatforma / тёмный + медь</h1>
+
+  <div class="grid">
+
+    <!-- MANROPE -->
+    <div class="card">
+      <div class="card-label manrope">Manrope <span>геометрический · технологичный · 200–800</span></div>
+      <div class="sample-heading manrope">Инвестиции в<br>реальный бизнес</div>
+      <div class="sample-sub manrope">Прямой доступ к сделкам без посредников</div>
+      <div class="sample-body manrope">
+        Платформа объединяет инвесторов с проверенными проектами.
+        Прозрачная структура, фиксированная доходность, полный контроль над портфелем.
+      </div>
+      <div class="sample-btn manrope">Начать инвестировать</div>
+      <div class="weights manrope">
+        <div class="weight-row"><span class="wnum">300</span><span class="wsample" style="font-weight:300">Платформа для инвесторов</span></div>
+        <div class="weight-row"><span class="wnum">400</span><span class="wsample" style="font-weight:400">Платформа для инвесторов</span></div>
+        <div class="weight-row"><span class="wnum">600</span><span class="wsample" style="font-weight:600">Платформа для инвесторов</span></div>
+        <div class="weight-row"><span class="wnum">700</span><span class="wsample" style="font-weight:700">Платформа для инвесторов</span></div>
+        <div class="weight-row"><span class="wnum">800</span><span class="wsample" style="font-weight:800">Платформа для инвесторов</span></div>
+      </div>
+      <div class="verdict">
+        <strong>Вывод:</strong> Идеален под стиль проекта. Геометричный, но живой.
+        Кириллица проработана автором (украинский дизайнер). Лучшие буквы Й, Ж, Щ.
+      </div>
+    </div>
+
+    <!-- INTER -->
+    <div class="card">
+      <div class="card-label inter">Inter <span>нейтральный · экранный · 100–900</span></div>
+      <div class="sample-heading inter">Инвестиции в<br>реальный бизнес</div>
+      <div class="sample-sub inter">Прямой доступ к сделкам без посредников</div>
+      <div class="sample-body inter">
+        Платформа объединяет инвесторов с проверенными проектами.
+        Прозрачная структура, фиксированная доходность, полный контроль над портфелем.
+      </div>
+      <div class="sample-btn inter">Начать инвестировать</div>
+      <div class="weights inter">
+        <div class="weight-row"><span class="wnum">300</span><span class="wsample" style="font-weight:300">Платформа для инвесторов</span></div>
+        <div class="weight-row"><span class="wnum">400</span><span class="wsample" style="font-weight:400">Платформа для инвесторов</span></div>
+        <div class="weight-row"><span class="wnum">600</span><span class="wsample" style="font-weight:600">Платформа для инвесторов</span></div>
+        <div class="weight-row"><span class="wnum">700</span><span class="wsample" style="font-weight:700">Платформа для инвесторов</span></div>
+        <div class="weight-row"><span class="wnum">800</span><span class="wsample" style="font-weight:800">Платформа для инвесторов</span></div>
+      </div>
+      <div class="verdict">
+        <strong>Вывод:</strong> Образцовый UI-шрифт. Нейтральнее Manrope, отлично читается мелким
+        кеглем. Лучший выбор для <em>основного текста</em>, форм, таблиц данных.
+      </div>
+    </div>
+
+    <!-- MONTSERRAT -->
+    <div class="card">
+      <div class="card-label montserrat">Montserrat <span>строгий · архитектурный · 100–900</span></div>
+      <div class="sample-heading montserrat">Инвестиции в<br>реальный бизнес</div>
+      <div class="sample-sub montserrat">Прямой доступ к сделкам без посредников</div>
+      <div class="sample-body montserrat">
+        Платформа объединяет инвесторов с проверенными проектами.
+        Прозрачная структура, фиксированная доходность, полный контроль над портфелем.
+      </div>
+      <div class="sample-btn montserrat">Начать инвестировать</div>
+      <div class="weights montserrat">
+        <div class="weight-row"><span class="wnum">300</span><span class="wsample" style="font-weight:300">Платформа для инвесторов</span></div>
+        <div class="weight-row"><span class="wnum">400</span><span class="wsample" style="font-weight:400">Платформа для инвесторов</span></div>
+        <div class="weight-row"><span class="wnum">600</span><span class="wsample" style="font-weight:600">Платформа для инвесторов</span></div>
+        <div class="weight-row"><span class="wnum">700</span><span class="wsample" style="font-weight:700">Платформа для инвесторов</span></div>
+        <div class="weight-row"><span class="wnum">800</span><span class="wsample" style="font-weight:800">Платформа для инвесторов</span></div>
+      </div>
+      <div class="verdict">
+        <strong>Вывод:</strong> Красиво в заголовках, но кириллица чуть «квадратнее» — буква Ж
+        и мягкий знак менее изящны. Риск выглядеть «как у всех» (популярен с 2015).
+      </div>
+    </div>
+
+  </div>
+
+  <!-- COMBO RECOMMENDATION -->
+  <div class="section-title">Рекомендуемая пара — Manrope (заголовки) + Inter (текст)</div>
+
+  <div class="combo-card">
+    <div class="eyebrow">Инвестиционная платформа</div>
+    <h2>Ваши деньги работают<br>на реальном рынке</h2>
+    <p>
+      Мы соединяем частных инвесторов с проверенными бизнесами напрямую —
+      без банков, фондов и непрозрачных схем. Фиксированная доходность,
+      ежемесячные выплаты, полный контроль.
+    </p>
+    <div class="cta">Посмотреть проекты</div>
+  </div>
+
+</body>
+</html>
