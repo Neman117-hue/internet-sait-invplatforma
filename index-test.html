@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Краудинвестинг — Совэлмаш, Аэронова, Web3ECO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap&subset=cyrillic" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #1C2B45;
+      color: #1C2B45;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 700px;
+      padding: 60px 40px;
+      background: #F5EDD8;
+      border-radius: 16px;
+      box-shadow: 0 12px 48px rgba(28, 43, 69, 0.55);
+      border-top: 4px solid #C47B3A;
+    }
+
+    h1 {
+      font-family: 'Manrope', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 28px;
+      color: #1C2B45;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #3D3520;
+      margin-bottom: 40px;
+    }
+
+    button {
+      font-family: 'Manrope', sans-serif;
+      background: #C47B3A;
+      color: #fff;
+      border: none;
+      padding: 16px 48px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    button:hover {
+      background: #A36228;
+    }
+
+    button:active {
+      transform: scale(0.97);
+    }
+
+    /* Модальное окно */
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(28, 43, 69, 0.82);
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+    }
+
+    .overlay.active {
+      display: flex;
+    }
+
+    .modal {
+      background: #F5EDD8;
+      border-radius: 12px;
+      padding: 48px 40px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 12px 40px rgba(28, 43, 69, 0.45);
+      border-top: 4px solid #5BA4CF;
+    }
+
+    .modal p {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #1C2B45;
+      margin-bottom: 28px;
+    }
+
+    .modal-close {
+      background: #2D7A4F;
+      color: #fff;
+      border: none;
+      padding: 12px 36px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .modal-close:hover {
+      background: #1E5C38;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Краудинвестинг — Совэлмаш, Аэронова, Web3ECO</h1>
+    <p>
+      Инвестиционная платформа для участия в перспективных проектах реального сектора и Web3-экономики.
+      Мы объединяем частных инвесторов и инновационные компании для совместного роста.
+    </p>
+    <button onclick="playWinNotify(); document.getElementById('overlay').classList.add('active')">
+      Узнать больше
+    </button>
+  </div>
+
+  <div class="overlay" id="overlay" onclick="this.classList.remove('active')">
+    <div class="modal" onclick="event.stopPropagation()">
+      <p>Скоро здесь будет полная платформа</p>
+      <button class="modal-close" onclick="document.getElementById('overlay').classList.remove('active')">
+        Закрыть
+      </button>
+    </div>
+  </div>
+
+
+  <script>
+    function playWinNotify() {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      // Волна вверх-вниз: C5 → E5 → G5 → E5 → C5
+      const notes = [523, 659, 784, 659, 523];
+      let time = ctx.currentTime;
+      notes.forEach(function(freq) {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, time);
+        gain.gain.setValueAtTime(0.001, time);
+        gain.gain.linearRampToValueAtTime(0.28, time + 0.06);
+        gain.gain.exponentialRampToValueAtTime(0.001, time + 0.28);
+        osc.start(time);
+        osc.stop(time + 0.3);
+        time += 0.13;
+      });
+    }
+  </script>
+</body>
+</html>
