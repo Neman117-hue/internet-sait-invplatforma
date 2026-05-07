@@ -707,6 +707,66 @@ footer {
 
 /* ── Utilities ─────────────────────────────── */
 .copper { color: var(--copper); }
+
+/* ── Responsive ────────────────────────────── */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero-visual { display: none; }
+  .manifest-inner { grid-template-columns: 1fr; gap: 40px; }
+  .steps-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+
+@media (max-width: 600px) {
+  /* Контейнер */
+  .container { padding: 0 20px; }
+  section { padding: 56px 0; }
+
+  /* Навигация */
+  .nav-inner { height: 56px; }
+  .nav-logo { font-size: 13px; letter-spacing: .02em; max-width: 180px; }
+  .nav-links { display: none; }
+  .nav-inner .btn { font-size: 13px; padding: 10px 16px; border-width: 2px; }
+
+  /* Hero */
+  .hero { padding: 64px 0 48px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .hero-visual { display: none; }
+  .hero-desc { font-size: 15px; max-width: 100%; }
+  .hero-project-pill { padding: 14px 14px; }
+  .hero-project-pill-name { font-size: 14px; min-width: 90px; }
+
+  /* Stats */
+  .stats-inner { grid-template-columns: 1fr; }
+  .stat-item { border-right: none; border-bottom: 1px solid var(--border); padding: 28px 20px; }
+  .stat-item:last-child { border-bottom: none; }
+  .stat-value { font-size: 36px; }
+
+  /* Projects */
+  .projects-grid { grid-template-columns: 1fr; }
+  .section-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+
+  /* How */
+  .steps-grid { grid-template-columns: 1fr; }
+  .step-num { font-size: 36px; margin-bottom: 12px; }
+
+  /* Manifest */
+  .manifest-inner { grid-template-columns: 1fr; gap: 32px; }
+
+  /* Docs */
+  .doc-item { flex-direction: column; align-items: flex-start; gap: 12px; }
+
+  /* FAQ */
+  .faq-q-text { font-size: 14px; }
+
+  /* CTA */
+  .cta-section { padding: 64px 0; }
+  .cta-section .btn { font-size: 15px; padding: 14px 20px; width: 100%; justify-content: center; }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+}
 </style>
 </head>
 <body>
